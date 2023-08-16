@@ -40,4 +40,14 @@
         </set>
         where id = #{id}
     </update>
+
+    <select id="list" resultType="com.app.entity.Dish">
+        select * from dish
+        where status = 1
+        <if test="categoryId != null">
+            and category_id = #{categoryId}
+        </if>
+        order by create_time desc
+    </select>
+
 </mapper>
