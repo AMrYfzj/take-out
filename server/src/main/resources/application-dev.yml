@@ -17,7 +17,7 @@ app:
     host: localhost
     port: 6379
     password: 123456
-    database: 0
+    database: 1
 
   wechat:
     appid: wx062f8836fe4d07bd
