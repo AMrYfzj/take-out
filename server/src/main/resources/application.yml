@@ -50,10 +50,10 @@ app:
     user-token-name: authentication
 
   alioss:
-    endpoint: ${sky.alioss.endpoint}
-    access-key-id: ${sky.alioss.access-key-id}
-    access-key-secret: ${sky.alioss.access-key-secret}
-    bucket-name: ${sky.alioss.bucket-name}
+    endpoint: ${app.alioss.endpoint}
+    access-key-id: ${app.alioss.access-key-id}
+    access-key-secret: ${app.alioss.access-key-secret}
+    bucket-name: ${app.alioss.bucket-name}
 
   wechat:
     appid: ${app.wechat.appid}

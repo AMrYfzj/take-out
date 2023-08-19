@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     private String getOpenid(String code) {
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>(4);
         map.put("appid", weChatProperties.getAppid());
         map.put("secret", weChatProperties.getSecret());
         map.put("js_code", code);
