@@ -1,6 +1,9 @@
 package com.app.mapper;
 
+import com.app.dto.OrdersPageQueryDTO;
 import com.app.entity.Orders;
+import com.app.vo.OrderVO;
+import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -30,4 +33,29 @@ public interface OrderMapper {
      */
     void update(Orders orders);
 
+    /**
+     * 分页查询
+     *
+     * @param ordersPageQueryDTO
+     * @return
+     */
+    Page<OrderVO> pageQuery(OrdersPageQueryDTO ordersPageQueryDTO);
+
+    /**
+     * 根据id查询订单信息
+     *
+     * @param id
+     * @return
+     */
+    @Select("select * from orders where id = #{id}")
+    OrderVO getById(Long id);
+
+    /**
+     * 根据状态计数
+     *
+     * @param status
+     * @return
+     */
+    @Select("select count(id) from orders where status = #{status}")
+    Integer countByStatus(Integer status);
 }

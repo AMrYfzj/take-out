@@ -1,9 +1,11 @@
 package com.app.service;
 
-import com.app.dto.OrdersPaymentDTO;
-import com.app.dto.OrdersSubmitDTO;
+import com.app.dto.*;
+import com.app.result.PageResult;
 import com.app.vo.OrderPaymentVO;
+import com.app.vo.OrderStatisticsVO;
 import com.app.vo.OrderSubmitVO;
+import com.app.vo.OrderVO;
 
 public interface OrderService {
 
@@ -30,4 +32,84 @@ public interface OrderService {
      * @param outTradeNo
      */
     void paySuccess(String outTradeNo);
+
+    /**
+     * 分页查询
+     *
+     * @param ordersPageQueryDTO
+     * @return
+     */
+    PageResult pageQuery(OrdersPageQueryDTO ordersPageQueryDTO);
+
+    /**
+     * 查询订单详情
+     *
+     * @param id
+     * @return
+     */
+    OrderVO getByIdWithDetail(Long id);
+
+    /**
+     * 取消订单
+     *
+     * @param id
+     */
+    void userCancelById(Long id) throws Exception;
+
+    /**
+     * 再来一单
+     *
+     * @param id
+     */
+    void repetition(Long id);
+
+    /**
+     * 订单搜索
+     *
+     * @param ordersPageQueryDTO
+     * @return
+     */
+    PageResult conditionSearch(OrdersPageQueryDTO ordersPageQueryDTO);
+
+    /**
+     * 各个状态的订单数量统计
+     *
+     * @return
+     */
+    OrderStatisticsVO statistics();
+
+    /**
+     * 接单
+     *
+     * @param id
+     */
+    void confirm(Long id);
+
+    /**
+     * 拒单
+     *
+     * @param ordersRejectionDTO
+     */
+    void rejection(OrdersRejectionDTO ordersRejectionDTO) throws Exception;
+
+    /**
+     * 取消订单
+     *
+     * @param ordersCancelDTO
+     */
+    void cancel(OrdersCancelDTO ordersCancelDTO) throws Exception;
+
+    /**
+     * 派送订单
+     *
+     * @param id
+     */
+    void delivery(Long id);
+
+    /**
+     * 完成订单
+     *
+     * @param id
+     */
+    void complete(Long id);
 }
